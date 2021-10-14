@@ -23,7 +23,7 @@
   }
   
   .page {
-    width: 1005px;
+    width: 63.5%;
     background-color:rgb(252, 207, 207);
     margin: auto;
     padding-right: 10px;
@@ -60,8 +60,9 @@
   }
 
   .pure-u-1 img {
-    width: 100vw;  
+    width: 100%;  
     padding-left: 0vw;
+    margin: auto;
 }
 
   .covid-19_text {
