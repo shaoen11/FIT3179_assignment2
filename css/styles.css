@@ -23,7 +23,7 @@
   }
   
   .page {
-    width: 63.5%;
+    width: 1005px;
     background-color:rgb(252, 207, 207);
     margin: auto;
     padding-right: 10px;
@@ -32,7 +32,7 @@
   }
   
   .vis-container {
-      width: 63.5%;
+      width: 100%;
       padding: auto;
   }
 
