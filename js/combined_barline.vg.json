@@ -1,0 +1,527 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/shaoen11/FIT3179-HomeworkW9/main/w9_homework/data/overall_summary.csv"},
+    "vconcat": [
+      {
+        "hconcat": [{
+      "width":244,
+      "height":200,
+      "layer": [{
+      "params": [{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      },
+      {
+      "name": "selection",
+      "select": {"type": "point", "fields": ["continent"]},
+      "bind": "legend"
+    }],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "continent",
+          "type": "nominal",
+          "title":null
+        },
+        "y": {
+          "aggregate": "average",
+          "field": "serious_or_critical",
+          "type": "quantitative",
+          "title":"Average Serious Cases"
+        },
+        "color": {
+              "title":"Select Continent",
+              "field": "continent",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Europe",
+                  "Asia",
+                  "North America",
+                  "South America",
+                  "Africa",
+                  "Australia/Oceania"
+                ],
+                "range": [
+                  "#8dd3c7",
+                  "#fa9fb5",
+                  "#bebada",
+                  "#fb8072",
+                  "#80b1d3",    
+                  "#fdb462"
+                ]
+              },
+              "legend": {"orient": "bottom", "labelFontSize": 15, "titleFontSize":17}
+            },
+        "opacity": {
+          "condition": {
+            "param": "brush", "value": 1
+          },
+          "value": 0.7
+        },
+        "opacity": {
+          "condition": {
+            "param": "selection", "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip":[{"aggregate":"average",
+                  "field": "serious_or_critical",
+                  "type": "quantitative",
+                  "title":"Avg Serious Cases","format":".2f"}]
+      }
+    }, 
+    {
+      "transform": [{
+        "filter": {"param": "selection"}
+      }],
+      "mark": "rule",
+      "encoding": {
+        "y": {
+          "aggregate": "average",
+          "field": "serious_or_critical",
+          "type": "quantitative"
+        },
+        "color": {"value": "firebrick"},
+        "size": {"value": 3}
+      }
+    }]
+    },
+    {
+    "width":244,
+    "height":200,
+      "layer": [{
+      "params": [{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      },
+      {
+      "name": "selection",
+      "select": {"type": "point", "fields": ["continent"]},
+      "bind": "legend"
+    }],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "continent",
+          "type": "nominal",
+          "title":null
+        },
+        "y": {
+          "aggregate": "average",
+          "field": "total_tests_per_1m_population",
+          "type": "quantitative",
+          "title":"Average Test"
+        },
+        "color": {
+              "title":"Select Continent",
+              "field": "continent",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Europe",
+                  "Asia",
+                  "North America",
+                  "South America",
+                  "Africa",
+                  "Australia/Oceania"
+                ],
+                "range": [
+                  "#8dd3c7",
+                  "#fa9fb5",
+                  "#bebada",
+                  "#fb8072",
+                  "#80b1d3",    
+                  "#fdb462"
+                ]
+              },
+              "legend": {"orient": "bottom", "labelFontSize": 15, "titleFontSize":17}
+            },
+            
+        "opacity": {
+          "condition": {
+            "param": "brush", "value": 1
+          },
+          "value": 0.7
+        },
+        "opacity": {
+          "condition": {
+            "param": "selection", "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip":[{"aggregate":"average",
+                  "field": "total_tests_per_1m_population",
+                  "type": "quantitative",
+                  "title":"Avg Test","format":".2f"}]
+      }
+    }, 
+    {
+      "transform": [{
+        "filter": {"param": "selection"}
+      }],
+      "mark": "rule",
+      "encoding": {
+        "y": {
+          "aggregate": "average",
+          "field": "total_tests_per_1m_population",
+          "type": "quantitative"
+        },
+        "color": {"value": "firebrick"},
+        "size": {"value": 3}
+      }
+    }]
+    },
+    {
+      "width":244,
+      "height":200,
+      "layer": [{
+      "params": [{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      },
+      {
+      "name": "selection",
+      "select": {"type": "point", "fields": ["continent"]},
+      "bind": "legend"
+    }],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "continent",
+          "type": "nominal",
+          "title":null
+        },
+        "y": {
+          "aggregate": "average",
+          "field": "total_recovered",
+          "type": "quantitative",
+          "title":"Average Recovered Cases"
+        },
+        "color": {
+              "title":"Select Continent",
+              "field": "continent",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Europe",
+                  "Asia",
+                  "North America",
+                  "South America",
+                  "Africa",
+                  "Australia/Oceania"
+                ],
+                "range": [
+                  "#8dd3c7",
+                  "#fa9fb5",
+                  "#bebada",
+                  "#fb8072",
+                  "#80b1d3",    
+                  "#fdb462"
+                ]
+              },
+              "legend": {"orient": "bottom", "labelFontSize": 15, "titleFontSize":17}
+            },
+        "opacity": {
+          "condition": {
+            "param": "brush", "value": 1
+          },
+          "value": 0.7
+        },
+        "opacity": {
+          "condition": {
+            "param": "selection", "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip":[{"aggregate":"average",
+                  "field": "total_recovered",
+                  "type": "quantitative",
+                  "title":"Avg Recovered Cases","format":".2f"}]
+      }
+    }, 
+    {
+      "transform": [{
+        "filter": {"selection": "selection"}
+      }],
+      "mark": "rule",
+      "encoding": {
+        "y": {
+          "aggregate": "average",
+          "field": "total_recovered",
+          "type": "quantitative"
+        },
+        "color": {"value": "firebrick"},
+        "size": {"value": 3}
+      }
+    }]
+    }
+    ]
+      },
+
+    {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/shaoen11/FIT3179-HomeworkW9/main/w9_homework/data/daily_data.csv"
+    },
+    "vconcat": [
+        {
+            "width": 890,
+            "height": 200,
+            "layer": [
+              {
+               "params": [{
+                  "name": "index",
+                  "value": [{"x": {"year": 2020, "month": "Jan"}}],
+                  "select": {
+                    "type": "point",
+                    "encodings": ["x"],
+                    "on": "mouseover",
+                    "nearest": true
+                  }
+                }],
+                "mark": "point",
+                "encoding": {
+                  "x": { "field": "monthyear", "type": "temporal","axis":null},
+                  "opacity": {"value": 0}
+                }
+              },
+              {
+                "selection": {
+                      "continent_highlight": {
+                        "type": "multi",
+                        "fields": ["continent"],
+                        "title":"Continent",
+                        "bind": "legend"
+                      }
+                    },
+                "transform": [
+                  {
+                    "lookup": "continent",
+                    "from": {"param": "index", "key": "continent"}
+                  }
+                ],
+                "mark": "line",
+                "encoding": {
+                  "x": {
+                    "field": "monthyear", "type": "temporal", "title":"Month-Year"
+                  },
+                  "y": {
+                    "aggregate": "sum", "field": "daily_new_deaths", "title": "Total Deaths",
+                    "scale": {"domain": [0, 200000]}
+                  },
+                  "color": {
+                   "field": "continent","type": "nominal",
+                    "legend":null
+                  },
+                  "opacity": {
+                        "condition": {"selection": "continent_highlight", "value": 0.8},
+                        "value": 0.2
+                      }
+                }
+              },
+              {
+                "transform": [{"filter": {"param": "index"}}],
+                "encoding": {
+                  "x": {"field": "monthyear", "type": "temporal"},
+                  "color": {"value": "black"}
+                },
+                "layer": [
+                  {"mark": {"type": "rule", "strokeWidth": 0.5}},
+                  {
+                    "mark": {"type": "circle", "stroke": "white", "strokeWidth": 3},
+                    "encoding": {
+                      "x": {"field": "monthyear", "type": "temporal"},
+                      "y": {
+                        "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative"
+                      },
+                      "key": {"field": "continent"}
+                    }
+                  },
+                  {
+                    "mark": {"type": "circle"},
+                    "encoding": {
+                      "x": {"field": "monthyear", "type": "temporal"},
+                      "y": {
+                        "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative"
+                      },
+                      "key": {"field": "continent"}
+                    }
+                  },
+                  {
+                    "mark": {
+                      "type": "text",
+                      "align": "right",
+                      "dx": -10,
+                      "dy": 0,
+                      "stroke": "white",
+                      "strokeWidth": 4
+                    },
+                    "encoding": {
+                      "x": {"field": "monthyear", "type": "temporal"},
+                      "y": {
+                       "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative"
+                      },
+                      "key": {"field": "continent"},
+                      "text": {
+                        "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative", "format": ","
+                      }
+                    }
+                  },
+                  {
+                    "mark": {"type": "text", "align": "right", "dx": -10, "dy": 0},
+                    "encoding": {
+                      "x": {"field": "monthyear", "type": "temporal"},
+                      "y": {
+                        "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative"
+                      },
+                      "key": {"field": "continent"},
+                      "text": {
+                        "aggregate": "sum", "field": "daily_new_deaths","type": "quantitative","format": ","
+                      }
+                    }
+                  },
+                  {
+                    "mark": {"type": "text", "align": "center", "fontWeight": 100},
+                    "encoding": {
+                      "text": {"timeUnit": "yearmonth", "field": "date", "type": "temporal"},
+                      "y": {"value": 257}
+                    }
+                  }
+                ]
+              }
+            ],
+            "config": {}
+          },
+          {
+          "width": 890,
+          "height": 200,
+          "layer": [
+            {
+             "params": [{
+                "name": "index",
+                "value": [{"x": {"year": 2020, "month": "Jan"}}],
+                "select": {
+                  "type": "point",
+                  "encodings": ["x"],
+                  "on": "mouseover",
+                  "nearest": true
+                }
+              }],
+              "mark": "point",
+              "encoding": {
+                "x": { "field": "monthyear", "type": "temporal","axis":null},
+                "opacity": {"value": 0}
+              }
+            },
+            {
+              "selection": {
+                    "continent_highlight": {
+                      "type": "multi",
+                      "fields": ["continent"],
+                      "title":"Continent",
+                      "bind": "legend"
+                    }
+                  },
+              "transform": [
+                {
+                  "lookup": "continent",
+                  "from": {"param": "index", "key": "continent"}
+                }
+              ],
+              "mark": "line",
+              "encoding": {
+                "x": {
+                  "field": "monthyear", "type": "temporal", "title":"Month-Year"
+                },
+                "y": {
+                  "aggregate": "sum", "field": "daily_new_cases", "title": "Total Cases",
+                  "scale": {"domain": [0, 12000000]},
+                  "axis": {"tickCount": 4}
+                },
+                "color": {
+                 "field": "continent","type": "nominal",
+                 "legend": {"orient": "top", "labelFontSize": 15, "titleFontSize":17}
+                },
+                "opacity": {
+                      "condition": {"selection": "continent_highlight", "value": 0.8},
+                      "value": 0.2
+                    }
+              }
+            },
+            {
+              "transform": [{"filter": {"param": "index"}}],
+              "encoding": {
+                "x": {"field": "monthyear", "type": "temporal"},
+                "color": {"value": "black"}
+              },
+              "layer": [
+                {"mark": {"type": "rule", "strokeWidth": 0.5}},
+                {
+                  "mark": {"type": "circle", "stroke": "white", "strokeWidth": 3},
+                  "encoding": {
+                    "x": {"field": "monthyear", "type": "temporal"},
+                    "y": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative"
+                    },
+                    "key": {"field": "continent"}
+                  }
+                },
+                {
+                  "mark": {"type": "circle"},
+                  "encoding": {
+                    "x": {"field": "monthyear", "type": "temporal"},
+                    "y": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative"
+                    },
+                    "key": {"field": "continent"}
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "right",
+                    "dx": -10,
+                    "dy": 0,
+                    "stroke": "white",
+                    "strokeWidth": 4
+                  },
+                  "encoding": {
+                    "x": {"field": "monthyear", "type": "temporal"},
+                    "y": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative"
+                    },
+                    "key": {"field": "continent"},
+                    "text": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative", "format": ","
+                    }
+                  }
+                },
+                {
+                  "mark": {"type": "text", "align": "right", "dx": -10, "dy": 0},
+                  "encoding": {
+                    "x": {"field": "monthyear", "type": "temporal"},
+                    "y": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative"
+                    },
+                    "key": {"field": "continent"},
+                    "text": {
+                      "aggregate": "sum", "field": "daily_new_cases","type": "quantitative","format": ","
+                    }
+                  }
+                },
+                {
+                  "mark": {"type": "text", "align": "center", "fontWeight": 100},
+                  "encoding": {
+                    "text": {"timeUnit": "yearmonth", "field": "date", "type": "temporal"},
+                    "y": {"value": 257}
+                  }
+                }
+              ]
+            }
+          ],
+          "config": {}
+          }
+        ]
+    }
+
+    ]}

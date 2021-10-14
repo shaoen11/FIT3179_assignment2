@@ -1,0 +1,153 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/shaoen11/FIT3179-HomeworkW9/main/w9_homework/data/overall_summary.csv"
+    },
+    "hconcat": [
+      {"title":"Top 5 Countries",
+        "width":404,
+        "height":100,
+        "transform": [
+   {"calculate": "parseInt(datum.total_cases_per_1m_population)", "as": "total_cases_per_1m_population"},
+  
+    {
+        "window": [{
+             "op": "rank",
+             "as": "rank"}],
+   
+    "sort": [{ "field": "total_cases_per_1m_population", "order": "descending" }]
+    }, 
+   
+    {
+    "filter": "datum.rank <=5 "
+    }
+    ],
+   
+    "mark": {
+        "type": "bar",
+        "fill": "#99000d",
+       "stroke": "black",
+       "cursor": "pointer"},
+    
+   "params": [
+       {
+         "name": "highlight",
+         "select": {"type": "point", "on": "mouseover"}
+       },
+       {
+         "name": "select", "select": "point"
+       }
+     ],
+   
+    "encoding": {
+    "x": {
+    "field": "total_cases_per_1m_population",
+    "type": "quantitative",
+    "title": "Total Cases per 1M Population"
+    },
+   
+    "y": {
+    "field": "country",
+    "type": "nominal",
+    "sort": {"field": "total_cases_per_1m_population", "order":"descending"},
+    "title":null
+    },
+   
+    "tooltip":[{"field":"total_cases_per_1m_population", "type":"quantitative","title":"Total Cases"}],
+   
+    "fillOpacity": {
+         "condition": {"param": "select", "value": 1},
+         "value": 0.2
+       },
+   
+   "strokeWidth": {
+         "condition": [
+           {
+             "param": "select",
+             "empty": false,
+             "value": 1
+           },
+           {
+             "param": "highlight",
+             "empty": false,
+             "value": 1.5
+           }
+         ],
+         "value": 0
+       }
+    }
+      },
+     {
+       "title":"Bottom 5 Countries",
+       "width":404,
+        "height":100,
+       "transform": [
+   {"calculate": "parseInt(datum.total_cases_per_1m_population)", "as": "total_cases_per_1m_population"},
+    {
+        "window": [{
+             "op": "rank",
+             "as": "rank"}],
+   
+    "sort": [{ "field": "total_cases_per_1m_population", "order": "ascending" }]
+    }, 
+   
+    {
+    "filter": "datum.rank <=5 "
+    }
+    ],
+   
+    "mark": {
+        "type": "bar",
+        "fill": "#fcbba1",
+       "stroke": "black",
+       "cursor": "pointer"},
+    
+   "params": [
+       {
+         "name": "highlight",
+         "select": {"type": "point", "on": "mouseover"}
+       },
+       {
+         "name": "select", "select": "point"
+       }
+     ],
+   
+    "encoding": {
+    "x": {
+    "field": "total_cases_per_1m_population",
+    "type": "quantitative",
+    "title": "Total Cases per 1M Population"
+    },
+   
+    "y": {
+    "field": "country",
+    "type": "nominal",
+    "sort": {"field": "total_cases_per_1m_population", "order":"ascending"},
+    "title":null
+    },
+   
+    "tooltip":[{"field":"total_cases_per_1m_population", "type":"quantitative","title":"Total Cases"}],
+   
+    "fillOpacity": {
+         "condition": {"param": "select", "value": 1},
+         "value": 0.2
+       },
+   
+   "strokeWidth": {
+         "condition": [
+           {
+             "param": "select",
+             "empty": false,
+             "value": 1
+           },
+           {
+             "param": "highlight",
+             "empty": false,
+             "value": 1.5
+           }
+         ],
+         "value": 0
+       }
+    }
+     }
+    ]
+   }
