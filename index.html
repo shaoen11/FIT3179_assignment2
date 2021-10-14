@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> COVID-19 Worldwide Overview</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+
+<body>
+  <div class="page">
+    <!-- pure grid group -->
+     <div class="pure-g">
+      <div class="pure-u-1">
+        <img src="../images/corona-2-copy.jpg" />
+    </div>
+       <div class="pure-u-1-1">
+         <!-- <h1>COVID-19 Cases Worldwide (Jan 2020 - July 2021)</h1> -->
+         <p><span style="font-size: large; border-left: 10px;">The <span style="font-weight:bold;">coronavirus disease 2019 (COVID-19)</span> pandemic
+          is an ongoing global pandemic caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The virus was first identified in 
+          December 2019 in Wuhan, China. Hence, this visualisations aim to show trends of <span style="color: red; font-weight:bold;">covid-19 cases </span>by taking in several statistics which 
+          include: <span style="font-style: italic;font-weight: bold;">confirmed cases, deaths, recovered cases, active cases, seriousness of cases, and test cases.</span>
+        </span>
+        </p>
+       </div>
+     </div>
+   <!-- end pure grid group -->
+
+   <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2><span style="font-weight:bold;">Confirmed Cases Across the World</span></h2>
+      <div id="choropleth_map" class="vis-container"></div>
+    <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2> <span style="font-weight:bold;">Ranking of Countries by Number of Cases</span> </h2>
+      <div id="topbottom_bar" class="vis-container"></div>
+    <!-- end pure grid group -->
+
+   <!-- pure grid group -->
+   <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2><span style="font-weight:bold;">Trends Over the Period</span></h2>
+      <p><span style="font-size: large;">In <span style="color: #8dd3c7; font-weight:bold;">Europe</span> countries, it is known that various incentives were being offered to citizens to encourage vaccinations. 
+        "As of July 31, <span style="font-weight:bold;">88.6%</span> of people above the age of 18 have taken the first dose and <span style="font-weight:bold;">72.1%</span> of 
+        people in the same age group have taken the second dose in the country" (TheIndianEXPRESS, 2021). This might be the main factor where even though confirmed cases in European 
+        countries were high, the death cases were lower as compared to other continents which had same number of confirmed cases.</span>
+      </p>
+      <div id="barline_graph" class="vis-container2"></div>
+      <p><span style="font-size: large;"><span style="color: #fdb462;font-weight:bold;">Australia/Oceania</span> covid cases were lowest among all continents throughout the timeline where
+        covid cases were under control. This was due to quick and decisive action from government based on incoming data, social capital builds trust amongst the public, and engagement 
+        with different communities to find out what they need (Forbes, 2021). On the other hand, <span style="color: #fb8072;font-weight:bold;">South America</span> is the only continent that had drop in covid cases in June 2021.
+      </span>
+      </p>
+    <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <!-- <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2><span style="font-weight:bold;">Relationship Between Confirmed Cases and Deaths</span></h2>
+      <div id="scatter2" class="vis-container"></div>
+  </div> -->
+    <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <!-- <div class="pure-g">
+    <div class="pure-u-1-1 small-font">
+      <p>This visualisation is created by <a href="https://github.com/shaoen11" target="_blank">Shao En Lim </a> (30533791) for Data Visualisation Assignment 2. </p>
+      <p> Datasource is <a href="https://www.kaggle.com/josephassaker/covid19-global-dataset" target="_blank">Covid-19 Global Dataset</href></a>, extracted from kaggle. </p>
+    </div>
+    </div>
+  </div> -->
+  <!-- end pure grid group -->
+
+  
+<script type="text/javascript">
+
+  var spec2 = "js/choropleth_map.vg.json";
+  var spec3 = "js/scatterplot.json";
+  var spec4 = "js/two_line_graph.vg.json";
+  var spec5 = "js/bargraph.vg.json";
+  var spec6 = "js/combined_barline.vg.json";
+  var spec7 = "js/topbottom_bar.vg.json";
+  var spec8 = "js/scatterplot2.vg.json";
+
+  vegaEmbed('#choropleth_map', spec2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#scatter_plot', spec3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#line_graph', spec4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#bar_graph', spec5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#barline_graph', spec6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#topbottom_bar', spec7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#scatter2', spec8, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>
