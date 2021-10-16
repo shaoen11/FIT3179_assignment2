@@ -4,7 +4,7 @@
     },
     "hconcat": [
       {"title":"Top 5 Countries",
-        "width":404,
+        "width":327,
         "height":100,
         "transform": [
    {"calculate": "parseInt(datum.total_cases_per_1m_population)", "as": "total_cases_per_1m_population"},
@@ -78,7 +78,7 @@
       },
      {
        "title":"Bottom 5 Countries",
-       "width":404,
+       "width":327,
         "height":100,
        "transform": [
    {"calculate": "parseInt(datum.total_cases_per_1m_population)", "as": "total_cases_per_1m_population"},
@@ -97,7 +97,7 @@
    
     "mark": {
         "type": "bar",
-        "fill": "#fcbba1",
+        "fill": "#fee0d2",
        "stroke": "black",
        "cursor": "pointer"},
     
